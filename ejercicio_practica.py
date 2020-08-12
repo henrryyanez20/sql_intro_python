@@ -31,6 +31,13 @@ def fill():
     conn.commit()
     conn.close()
 
+def fetch():
+    conn = sqlite3.connect('libreria.db')
+    c = conn.cursor()
+    
+    c.execute('SELECT * FROM t')
+    data = c.fetchall()
+    print(data)
 
 
 
@@ -42,7 +49,7 @@ if __name__ == "__main__":
   fill()
 
   # Leer filas
-  #fetch()  # Ver todo el contenido de la DB
+  fetch()  # Ver todo el contenido de la DB
   #fetch(3)  # Ver la fila 3
   #fetch(20)  # Ver la fila 20
 
